@@ -7,7 +7,7 @@ import requests
 
 class ImageCreateForm(forms.ModelForm):
     class Meta:
-        nodel = Image
+        model = Image
         fields = ['title', 'url', 'description']
         widgets = {
             'url': forms.HiddenInput,
