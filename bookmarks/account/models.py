@@ -25,9 +25,9 @@ class Contact(models.Model):
 
     class Meta:
         indexes = [
-            models.Index(fields='-created')
+            models.Index(fields=['-created'])
         ]
-        ordering = '-created'
+        ordering = ['-created']
 
     def __str__(self):
         return f'{self.user_from} follow {self.user_to}.'
