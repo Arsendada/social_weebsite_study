@@ -8,7 +8,7 @@ from django.contrib import messages
 from .models import Profile, Contact
 from django.contrib.auth.models import User
 from django.views.decorators.http import require_POST
-
+from actions.utils import create_action
 
 
 # def user_login(request):
@@ -48,6 +48,7 @@ def register(request):
             )
             new_user.save()
             Profile.objects.create(user=new_user)
+            create_action(new_user, 'has created an account')
             return render(request,
                           'account/register_done.html',
                           {'new_user': new_user})
